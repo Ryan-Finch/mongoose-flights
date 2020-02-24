@@ -1,3 +1,8 @@
+*{
+  box-sizing: border-box;
+  font-family: Helvetica;
+
+}
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -74,7 +79,13 @@ label{
   justify-content: center;
   align-items: center;
   margin: auto;
+ 
 }
 input{
   border: 2px ridge black;
+}
+.show-page{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }

@@ -6,7 +6,9 @@
                 <tr>
                     <th>Airline</th>
                     <th>Flight #</th>
+                    <th>Airport</th>
                     <th>Depature Time</th>
+                    <th>Flight Details</th>
                 </tr>
               
             </thead>
@@ -17,13 +19,18 @@
                     <tr class="flight-data">
                         <td style="color: red"><%= flight.airline%></td>
                         <td style="color: red"><%= flight.flightNo%></td>
+                        <td style="color: red"><%= flight.airport%></td>
                         <td style="color: red"><%= flight.departs%></td>
+                        <td><a href="/flights/<%= flight.id%>">Flight Details</a></td>
                     </tr>
+                    
                 <% } else{%>
                     <tr class="flight-data">
                         <td><%= flight.airline%></td>
                         <td><%= flight.flightNo%></td>
+                        <td><%= flight.airport%></td>
                         <td><%= flight.departs%></td>
+                        <td><a href="/flights/<%= flight.id%>">Flight Details</a></td>
                     </tr>
                 <% }%>
             <% });%>
