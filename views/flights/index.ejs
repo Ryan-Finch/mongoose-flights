@@ -13,14 +13,20 @@
             <tbody>
               
                 <% flights.forEach(function(flight) { %>
-                  
-              
-                    <tr>
-                    <td><%= flight.airline%></td>
-                    <td><%= flight.flightNo%></td>
-                    <td><%= flight.departs%></td>
+                   <% if(flight.departs < new Date()) { %>
+                    <tr class="flight-data">
+                        <td style="color: red"><%= flight.airline%></td>
+                        <td style="color: red"><%= flight.flightNo%></td>
+                        <td style="color: red"><%= flight.departs%></td>
                     </tr>
-                <% });%>
+                <% } else{%>
+                    <tr class="flight-data">
+                        <td><%= flight.airline%></td>
+                        <td><%= flight.flightNo%></td>
+                        <td><%= flight.departs%></td>
+                    </tr>
+                <% }%>
+            <% });%>
              
             </tbody>
         </table>

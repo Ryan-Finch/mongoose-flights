@@ -46,7 +46,7 @@ th{
 tr{
   text-align: left;
 }
-tr:hover{
+.flight-data:hover{
   background-color: slategray;
 }
 td{

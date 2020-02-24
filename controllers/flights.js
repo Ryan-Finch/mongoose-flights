@@ -17,15 +17,14 @@ function create(req, res){
 
     flight.save(function(err){
              
-        if(err) return res.render('flights/new');
-        console.log(flight)
+        if(err) return res.render('flights/index');
         res.redirect('/flights')
     })
 }
 function newFlight(req,res){
     const newFlight = new Flight();
     var dt = newFlight.departs;
-    console.log(dt)
     var destDate = `${dt.getFullYear() + 1}-${dt.getMonth() + 9}-${dt.getDate()}T${dt.getHours().toString().padStart(2, '0')}:${dt.getMinutes().toString().padStart(2, '0')}`;  
+
     res.render('flights/new', {destDate})
 };
