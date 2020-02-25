@@ -2,7 +2,6 @@
 <h1>Flight List</h1>
         <table>
             <thead>
-            
                 <tr>
                     <th>Airline</th>
                     <th>Flight #</th>
@@ -10,10 +9,8 @@
                     <th>Depature Time</th>
                     <th>Flight Details</th>
                 </tr>
-              
             </thead>
             <tbody>
-              
                 <% flights.forEach(function(flight) { %>
                    <% if(flight.departs < new Date()) { %>
                     <tr class="flight-data">
@@ -23,7 +20,6 @@
                         <td style="color: red"><%= flight.departs%></td>
                         <td><a href="/flights/<%= flight.id%>">Flight Details</a></td>
                     </tr>
-                    
                 <% } else{%>
                     <tr class="flight-data">
                         <td><%= flight.airline%></td>
@@ -33,11 +29,7 @@
                         <td><a href="/flights/<%= flight.id%>">Flight Details</a></td>
                     </tr>
                 <% }%>
-            <% });%>
-             
+            <% });%> 
             </tbody>
         </table>
-
-
-
 <%- include('../partials/footer') %> 

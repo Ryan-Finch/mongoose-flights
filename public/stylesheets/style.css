@@ -1,13 +1,19 @@
 *{
   box-sizing: border-box;
   font-family: Helvetica;
+  margin: 0;
+  padding: 0;
 
 }
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   text-align: center;
   justify-items: center;
+  background: antiquewhite;
+}
+header{
+  width: 100vw;
+  background:grey;
 }
 /* Nav bar styling*/
 nav{
@@ -16,8 +22,7 @@ nav{
 }
 ul{
   list-style: none;
-  margin: 5px;
-  
+  margin-bottom: 20px;
 }
 li{
   display: inline-block;
@@ -25,7 +30,10 @@ li{
   padding: 10px;
 }
 a {
-  color: #00B7FF;
+  color: black;
+}
+a:hover{
+  color: white;
 }
 /*table styling */
 table{
@@ -45,7 +53,7 @@ thead{
 }
 th{
   font-size: 20px;
-  height: 10vh;
+  height: 5vh;
   width: 10%;
 }
 tr{
@@ -88,4 +96,14 @@ input{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+}
+.delete{  
+  height: 20px;
+  padding: 50px;
+}
+.dest-form{
+  height: 40px;
+}
+#dest-table{
+  padding: 50px;
 }

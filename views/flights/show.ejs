@@ -8,8 +8,6 @@
             <th>Flight #</th>
             <th>Airport</th>
             <th>Depature Time</th>
-            <th>Destinations</th>
-            <th>ArrivalTimes</th>
         </tr>
     </thead>
     <tbody>
@@ -18,38 +16,66 @@
                 <td><%= flight.flightNo%></td>
                 <td><%= flight.airport%></td>
                 <td><%= flight.departs%></td>
-                <td></td>
-                <td></td>
-            <%flight.destination.forEach(function(d){ %>
-             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            </tr>
+    </tbody>
+</table>
+<table id="dest-table">
+    <thead>
+        <tr>
+            <th>Destinations</th>
+            <th>ArrivalTimes</th>
+        </tr>
+        <tbody>
+            <%flight.destination.forEach(function(d){ %>  
+             <tr class="flight-data">
                 <td><%=d.destinationAirport%></td>
                 <td><%=d.arrivalTime%></td>
             </tr>
             <% })%>
-            </tr>
-    </tbody>
+        </tbody>
+    </thead>
 </table>
+
+
 <% if(flight.destination.length < 5){ %>
-    <form method="POST" action="/flights/<%=flight.id%>/show" >
+    <form class="dest-form"method="POST" action="/flights/<%=flight.id%>/show" >
         <label>Destination:
             <select name="destinationAirport">
-                <option value="DEN">DEN</option>
-                <option value="AUS">AUS</option>
-                <option value="LAX">LAX</option>
-                <option value="DAL">DAL</option>
-                <option value="SAN">SAN</option>
+               <% if(flight.airport === "DEN"){%>
+                <option value="DEN" disabled>DEN</option>
+               <%}else{%>
+                   <option value="DEN">DEN</option>
+               <%}%>
+               <% if(flight.airport === "AUS"){%>
+                <option value="AUS" disabled>AUS</option>
+               <%}else{%>
+                   <option value="AUS">AUS</option>
+               <%}%>
+               <% if(flight.airport === "LAX"){%>
+                <option value="LAX" disabled>LAX</option>
+               <%}else{%>
+                   <option value="LAX">LAX</option>
+               <%}%>
+               <% if(flight.airport === "DAL"){%>
+                <option value="DAL" disabled>DAL</option>
+               <%}else{%>
+                   <option value="DAL">DAL</option>
+               <%}%>
+               <% if(flight.airport === "SAN"){%>
+                <option value="SAN" disabled>SAN</option>
+               <%}else{%>
+                   <option value="SAN">SAN</option>
+               <%}%>
             </select>
         </label></br></br>
         <label>Arrival Time:
-        <input type="datetime-local" name="arrivalTime">
+        <input type="datetime-local" name="arrivalTime" value="<%=arrivalDate%>">
         </label>
         <input type="submit" value="Add Destination">
     </form> 
 <% }%>
- 
+<form class="delete" action="/flights/<%= flight.id%>?_method=DELETE" class="delete-form" method="POST">
+    <button type="submit">Delete Flight</button> 
+</form> 
 
 <%- include('../partials/footer') %>
