@@ -11,7 +11,6 @@ module.exports = {
 };
 function deleteFlight(req,res){
     Flight.findByIdAndRemove(req.params.id,function(err,doc){
-        console.log(req.params.id)
         res.redirect('/flights')
     });
 }
@@ -20,7 +19,6 @@ function show(req,res){
     Flight.findById(req.params.id,function(err, flight){
         Ticket.find({flight:req.params.id}, function(err,ticket){
             if(err) return res.render('flights/index')
-            console.log(ticket)
             flight.destination.sort(function(a,b){
                     return a.arrivalTime - b.arrivalTime;
             });
