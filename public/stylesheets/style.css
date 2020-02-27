@@ -107,3 +107,9 @@ input{
 #dest-table{
   padding: 50px;
 }
+.ticket-header{
+  text-align: center;
+}
+sub{
+  font-size: 10px;
+}

@@ -12,7 +12,7 @@ function deleteTicket(req,res){
     // console.log(req.params.id)
     if(err)console.log(err)
     
-    res.redirect('/flights')
+    res.redirect(`/flights`)
   });
 }
 function create(req,res){
